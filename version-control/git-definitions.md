@@ -1,4 +1,5 @@
 # Git Definitions
+## Small change for Release 2
 
 **Instructions: ** Define each of the following Git concepts.
 
