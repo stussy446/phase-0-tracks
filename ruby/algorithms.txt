@@ -1,8 +1,25 @@
+Elevator 
+
 - Ask the user what floor they want to go to, between (and including) the lowest floor and the highest floor of the building.
 - Until the user puts in a correct request: 
 	- If the floor request is a floor that exists within the building:
 		- Press the button that matches with the user's input. 
-		- End the request 
+		- End the request.
 	- Otherwise:
 		- Ask the person to request a floor between the correct number of floors that the building has. 
-- User Exits Elevator
+- User Exits Elevator.
+
+Study Algorithm 
+
+- Stand up.  
+- Move right until a Wall is reached (Wall).
+- Move left until a Chair is reached (Chair).
+- Sit down in a Chair. 
+- Open Computer and Notebook.
+- Make sure I am awake.
+- Until my eyes are closing:
+	- If my knowledge is not increasing:
+		- Eyes are closing. 
+	- Otherwise:
+		- Write new knowledge in Notebook.
+- End of Studying.
