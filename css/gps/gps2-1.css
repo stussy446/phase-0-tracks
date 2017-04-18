@@ -1,0 +1,29 @@
+header{
+  text-align:center;
+  width:90%;
+}
+.column-1{
+  width: 45%;
+  background-color: blue;
+  display: inline-block;
+  vertical-align: top;
+  margin-left:0px;
+  padding:5px;
+ 
+}
+
+.column-2{
+  width: 45%;
+  background-color: yellow;
+  display: inline-block;
+  margin-left:0px;
+  padding:5px;
+}
+
+footer{
+  background-color: green;
+}
+
+body section {
+  font-family:helvetica; 
+}
