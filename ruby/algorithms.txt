@@ -1,0 +1,8 @@
+- Ask the user what floor they want to go to, between (and including) the lowest floor and the highest floor of the building.
+- Until the user puts in a correct request: 
+	- If the floor request is a floor that exists within the building:
+		- Press the button that matches with the user's input. 
+		- End the request 
+	- Otherwise:
+		- Ask the person to request a floor between the correct number of floors that the building has. 
+- User Exits Elevator
