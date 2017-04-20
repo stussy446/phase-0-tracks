@@ -25,10 +25,6 @@ def encrypt(string)
 
 end
 
-
-
- 
-
 # Decrypt Method
   # input: recieve a string 
   # make a counter starting at 0
@@ -43,24 +39,33 @@ end
   # example input: "bcd"
   # example output: "abc"
 
-
-
- def decrypt(string)
+  def decrypt(word)
    counter = 0 
    password = ""
-   until counter == string.length
+   until counter == word.length
      alphabet = "abcdefghijklmnopqrstuvwxyz"
-     letter = alphabet.index(string[counter]) - 1
+     letter = alphabet.index(word[counter]) - 1
      counter += 1 
      password = alphabet[letter] + password
    end 
- password.reverse
+  password.reverse
    
  end 
 
-#encrypt("swordfish")
-#decrypt("swordfish")
-#decrypt(encrypt("swordfish"))
+# ----> TEST CASES (Release 3)<----
+
+# encrypt("abc")
+# encrypt("zed")
+# decrypt("bcd")
+# decrypt("afe")
+
+# Nest Call 
+
+# puts decrypt(encrypt("taco"))
+# The method call works because the encrypt method and decrypt method will
+# both return a string, so the value of one will work as the parameter of the other.
+
+# ---------> INTERFACE <-------------
 
 puts "Would you like to decrypt or encrypt today?"
 strategy = gets.chomp
