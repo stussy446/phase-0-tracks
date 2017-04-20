@@ -15,13 +15,14 @@ def encrypt(string)
   password = ""
   until counter == string.length
     if string[counter] == 'z'
-      password = password + 'a'
+      password = 'a'
     else
       password = string[counter].next + password
     end 
     counter +=1
   end
-puts password.reverse
+ password.reverse
+
 end
 
 
@@ -53,10 +54,31 @@ end
      counter += 1 
      password = alphabet[letter] + password
    end 
-   puts password.reverse
+ password.reverse
+   
  end 
 
- 
+#encrypt("swordfish")
+#decrypt("swordfish")
+#decrypt(encrypt("swordfish"))
+
+puts "Would you like to decrypt or encrypt today?"
+strategy = gets.chomp
+puts "What is the password?"
+password = gets.chomp
+if strategy == "encrypt" 
+  result = encrypt(password)
+elsif strategy == "decrypt"
+  result = decrypt(password)
+else 
+  puts "Incorrect input"
+end 
+
+puts "Results: #{result}"
+puts "Exiting.....BYE!"
+
+
+
 
 
 
