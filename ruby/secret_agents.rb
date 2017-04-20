@@ -14,14 +14,19 @@ def encrypt(string)
   counter = 0
   password = ""
   until counter == string.length
-    password = string[counter].next + password
+    if string[counter] == 'z'
+      password = password + 'a'
+    else
+      password = string[counter].next + password
+    end 
     counter +=1
-
   end
 puts password.reverse
 end
 
- encrypt("abc")
+
+
+ 
 
 # Decrypt Method
   # input: recieve a string 
@@ -51,7 +56,11 @@ end
    puts password.reverse
  end 
 
- decrypt("bcd")
+ 
+
+
+
+ 
 
 
 
