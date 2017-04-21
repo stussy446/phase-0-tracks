@@ -28,7 +28,17 @@ for i in 1..employees
 	garlic_bread = gets.chomp
 	puts "Would you like to enroll in the company's health insurance policy?"
 	insurance = gets.chomp
-
+	puts "Please let us know any allergies you may have, one at a time."
+	loop {
+		puts "allergy name --"
+		allergy = gets.chomp 
+		if allergy == "done"
+			break
+		elsif allergy == "sunshine"
+			puts "oh no..."
+			break
+		end 
+	}
 	# Conditional logic
 	if vampire_name 
 		puts "Definitely a vampire."
