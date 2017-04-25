@@ -29,6 +29,7 @@ puts client_info
 # Give user the option to update a key. Skip if user says "none"
 # If the designer enters "decor_theme"(for example), ask for a new value
 # and update the :decor_theme
+
 puts "Please select any option that you would like to update at this time \n (if satisfied, enter \"none\")"
 choice = gets.chomp.to_sym
 if client_info.has_key?(choice)
@@ -42,6 +43,7 @@ else
 end 
 
 # Print the latest version of the hash
+
 puts "Great, Lets finish up..."
 puts client_info
 
