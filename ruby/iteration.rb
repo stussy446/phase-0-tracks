@@ -14,7 +14,7 @@ game_of_thrones = {
 }
 
 sports.map!{|sport| 
-  sport + " is awesome!"
+  sport + " is awesome and"
 }
 
 
@@ -25,3 +25,38 @@ game_of_thrones.each{|title, character|
 sports.each{|sport|
   puts "#{sport} is my favorite sport!"
 }
+
+# Release 2 
+
+numbers = [1, 2, 3, 4, 5]
+person = {
+  name: "Steve",
+  age: 25,
+  home: "California"
+}
+# delete_if
+
+numbers.delete_if{ |number| number < 3}
+person.delete_if{ |information, data| data == "Steve"}
+
+# keep_if
+
+numbers.keep_if{|number| number > 2}
+person.keep_if{|information, data| data == "Steve"}
+
+# select
+
+new_numbers = numbers.select{|number| number.even? }
+new_person = person.select{ |information, data| data == 25}
+
+# take_while 
+new_number = numbers.take_while{|number| number < 5}
+
+# reject 
+new_person = person.reject{|information, data| data == "California"}
+
+
+
+
+
+
