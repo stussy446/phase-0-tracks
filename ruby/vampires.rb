@@ -57,10 +57,10 @@ for i in 1..employees
 		puts "Definitely a vampire."
 	elsif vampire_allergy
 		puts "Probably a vampire."
-	elsif (2017 - age == year) && (garlic_bread == "y" || insurance == "y") 
+	elsif (Time.now.year - age == year) && (garlic_bread == "y" || insurance == "y") 
 		puts "Probably not a vampire."
-	elsif (2017 - age != year) && (garlic_bread == "n" || insurance == "n" )
-		if (2017 - age != year) && (garlic_bread == "n") && (insurance == "n") 
+	elsif (Time.now.year - age != year) && (garlic_bread == "n" || insurance == "n" )
+		if (Time.now.year - age != year) && (garlic_bread == "n") && (insurance == "n") 
 			puts "Almost certainly a vampire."
 		else
 			puts "Probably a vampire."
