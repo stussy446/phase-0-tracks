@@ -5,13 +5,17 @@
 
 def search_array(array, number)
   array.each{|item| 
-    if item == number 
-      puts item
+    if item == number
+      number = (0..array.length - 1).select{|i| array[i] == number} 
+      
     else
       nil
     end
   }
+  number
 end
 
+
 arr = [1,2,3,4,5]
-search_array(arr, 2)
+puts search_array(arr, 5 )
+
