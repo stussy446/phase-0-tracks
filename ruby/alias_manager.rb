@@ -14,14 +14,14 @@ def fake_name(fullname)
   # Create a condition for "z" to turn into "a" and for everything else to be a space
 
   letters = reverse_name.split('')
-  vowels = ["a", "e", "i", "o", "u"]
+  vowels = ["a", "e", "i", "o"]
   consanants = ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "y",]
   letters.map! { |letter|
     if vowels.include?(letter)
       letter = vowels[vowels.index(letter) + 1]
     elsif consanants.include?(letter)
       letter = consanants[consanants.index(letter) + 1]
-    elsif letter == "z" 
+    elsif letter == "z" || letter == "u"
       letter = "a"
     else
       letter = " "
