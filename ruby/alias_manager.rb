@@ -45,11 +45,15 @@ end
 
 puts "Enter a name that would would like an alias for."
 puts "If your sneakiness is complete, type \"quit\""
+
 aliases = {}
 loop do
   puts "Enter name here--"
   old_name = gets.chomp
-  if old_name == "quit"
+  if old_name.to_i != 0 || old_name == ""
+    puts "Please enter letters"
+    next
+  elsif old_name == "quit"
     break
   else
     new_name = fake_name(old_name)
@@ -65,6 +69,8 @@ end
 aliases.each { |person, fake_name| 
   puts "#{fake_name} is acually #{person}!!"
 }
+
+puts "Thank you for using the Fake Namenator!"
 
 
 
