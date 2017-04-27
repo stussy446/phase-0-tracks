@@ -1,11 +1,11 @@
-# SPY ALGORITHM: Write a method that make's a spy's name fake
-# Cwap the first/last name and then swap letters
+# SPY ALGORITHM: Write a method that makes a spy's name fake
+# Swap the first/last name and then swap letters
 # Input example: "Steve Rector", "Danielle "Rector"
 # Output example: Sidvus Tviwi , "Sidvus Fepoimmi"
 
 def fake_name(fullname)
   
-  # Swap the first and last name.
+  # Swap the first and last name
   # Make all letters lowercase
   
   reverse_name = fullname.downcase.split(' ').reverse.join(' ')
@@ -30,7 +30,7 @@ def fake_name(fullname)
   
   # Join the letters array to create a string
   # Split that string by the space and capitalize each element in the string
-  # then join that string back together for the return.
+  # then join that string back together for the return
   
   fake_name = letters.join('')
   fake_name.split(' ').map!{|word| word.capitalize}.join(' ')
@@ -41,7 +41,7 @@ end
 
 # Create a loop that uses the fake_name method to create aliases
 # If the user inputs "quit", end the loop
-# Otherwise, create the new name and store it in a hash.
+# Otherwise, create the new name and store it in a hash
 
 puts "Enter a name that would would like an alias for."
 puts "If your sneakiness is complete, type \"quit\""
@@ -62,7 +62,7 @@ loop do
   end
 end
 
-# Iterate through aliases and print a sentence saying who each alias is.
+# Iterate through aliases and print a sentence saying who each alias is
 # Example input: Felicia Torres
 # Example output: Vussit Gimodoe is actually Felicia Torres!!
 
