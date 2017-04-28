@@ -54,12 +54,13 @@ end
 # ----
 zombie_apocalypse_supplies.each do|item|
   deleter = []
-  if item[0] == "b" || item[0] == "c"
-    deleter << item
-    zombie_apocalypse_supplies = zombie_apocalypse_supplies - deleter
+  deleter << item
+  zombie_apocalypse_supplies = zombie_apocalypse_supplies - deleter
+  if zombie_apocalypse_supplies[5] == nil
+    break
   end
 end
-puts zombie_apocalypse_supplies
+ puts zombie_apocalypse_supplies
 
 
 # 5. You found another survivor! This means you can combine your supplies.
