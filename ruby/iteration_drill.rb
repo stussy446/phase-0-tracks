@@ -7,7 +7,7 @@ zombie_apocalypse_supplies = ["hatchet", "rations", "water jug", "binoculars",
 # printing each item in the array separated by an asterisk
 # ----
 
-#zombie_apocalypse_supplies.each{|supply| print "#{supply}*"}
+# zombie_apocalypse_supplies.each{|supply| print "#{supply}*"}
 
 # 2. In order to keep yourself organized, sort your zombie_apocalypse_supplies
 # in alphabetical order. Do not use any special built-in methods.
@@ -60,7 +60,7 @@ zombie_apocalypse_supplies.each do|item|
     break
   end
 end
- puts zombie_apocalypse_supplies
+ #puts zombie_apocalypse_supplies
 
 
 # 5. You found another survivor! This means you can combine your supplies.
@@ -71,6 +71,11 @@ end
 other_survivor_supplies = [ "warm clothes", "rations", "compass", "camp stove",
                             "solar battery", "flashlight"]
 # ----
+
+all_supplies = (zombie_apocalypse_supplies + other_survivor_supplies).uniq
+puts all_supplies
+
+
 
 # Hash Drills
 
