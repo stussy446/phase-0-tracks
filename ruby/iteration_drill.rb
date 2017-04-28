@@ -125,6 +125,25 @@ end
 # "Saiga Antelope"
 # Do not use any special built-in methods.
 # ----
+in_hash = []
+extinct_animals.each do |animal, year|
+  if "Andean Cat" == animal  
+    in_hash << "Andean Cat"
+    puts "#{animal} is extinct."
+  elsif "Dodo" == animal 
+    in_hash << "Dodo"
+    puts "#{animal} is extinct."
+  elsif "Saiga Antelope" == animal 
+    in_hash << "Saiga Antelope"
+    puts "#{animal} is extinct."
+  else 
+    nil
+  end
+  if in_hash[0] == nil
+    puts "#{animal} is not extinct."
+  end
+end
+
 
 # 5. We just found out that the Passenger Pigeon is actually not extinct!
 # Remove them from extinct_animals and return the key value pair as a two item array.
