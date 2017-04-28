@@ -41,12 +41,12 @@ def is_it_here(arr, item)
       puts "#{item} is in my supplies"
     end 
   end 
-  if my_supplies.length == 0
+  if my_supplies[0] == nil
       puts "Not here"
   end
 end
 
-#is_it_here( zombie_apocalypse_supplies, "beans") 
+is_it_here( zombie_apocalypse_supplies, "batteries") 
 
 # 4. You can't carry too many things, you've only got room in your pack for 5.
 # Remove items in your zombie_apocalypse_supplies in any way you'd like,
@@ -72,8 +72,8 @@ other_survivor_supplies = [ "warm clothes", "rations", "compass", "camp stove",
                             "solar battery", "flashlight"]
 # ----
 
-all_supplies = (zombie_apocalypse_supplies + other_survivor_supplies).uniq
-puts all_supplies
+# all_supplies = (zombie_apocalypse_supplies + other_survivor_supplies).uniq
+# puts all_supplies
 
 
 
