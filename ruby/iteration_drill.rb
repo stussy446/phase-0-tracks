@@ -22,7 +22,7 @@ loop do
   end 
   break if not swapped 
 end 
-puts zombie_apocalypse_supplies
+#puts zombie_apocalypse_supplies
 
 
 
@@ -31,6 +31,21 @@ puts zombie_apocalypse_supplies
 # zombie_apocalypse_supplies. Do not use any special built-in methods.
 # For instance: are boots in your list of supplies?
 # ----
+
+def is_it_here(arr, item)
+  my_supplies = []
+  arr.each do |supply|
+    if item == supply
+      my_supplies << item
+      puts "#{item} is in my supplies"
+    end 
+  end 
+  if my_supplies.length == 0
+      puts "Not here"
+  end
+end
+
+is_it_here( zombie_apocalypse_supplies, "beans") 
 
 # 4. You can't carry too many things, you've only got room in your pack for 5.
 # Remove items in your zombie_apocalypse_supplies in any way you'd like,
