@@ -97,14 +97,15 @@ extinct_animals = {
 # 2. Keep only animals in extinct_animals if they were extinct before
 # the year 2000. Do not use any special built-in methods.
 # ----
+early_extinction = {}
 extinct_animals.each do|animal, year|
-  early_extinction = {}
   if year < 2000
     early_extinction[animal] = year 
+    extinct_animals = early_extinction
   end 
-  extinct_animals = early_extinction
-  print extinct_animals
 end
+
+# print extinct_animals
 
 
 
@@ -113,6 +114,9 @@ end
 # so they accurately reflect what year the animal went extinct.
 # Do not use any special built-in methods.
 # ----
+
+# extinct_animals.each{|animal, year| extinct_animals[animal] = year - 3}
+# print extinct_animals
 
 # 4. You've heard that the following animals might be extinct, but you're not sure.
 # Check if they're included in extinct_animals, one by one:
