@@ -46,7 +46,7 @@ def is_it_here(arr, item)
   end
 end
 
-is_it_here( zombie_apocalypse_supplies, "batteries") 
+# is_it_here( zombie_apocalypse_supplies, "batteries") 
 
 # 4. You can't carry too many things, you've only got room in your pack for 5.
 # Remove items in your zombie_apocalypse_supplies in any way you'd like,
@@ -92,10 +92,21 @@ extinct_animals = {
 # 1. Iterate through extinct_animals hash, printing each key/value pair
 # with a dash in between the key and value, and an asterisk between each pair.
 # ----
+# extinct_animals.each{|animal, year| print "#{animal}-#{year} * "}
 
 # 2. Keep only animals in extinct_animals if they were extinct before
 # the year 2000. Do not use any special built-in methods.
 # ----
+extinct_animals.each do|animal, year|
+  early_extinction = {}
+  if year < 2000
+    early_extinction[animal] = year 
+  end 
+  extinct_animals = early_extinction
+  print extinct_animals
+end
+
+
 
 # 3. Our calculations were completely off, turns out all of those animals went
 # extinct 3 years before the date provided. Update the values in extinct_animals
