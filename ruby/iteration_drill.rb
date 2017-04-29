@@ -130,7 +130,6 @@ extinct_animals.each do |animal, year|
   if "Andean Cat" == animal || "Dodo" == animal || "Saiga Antelope" == animal 
     puts "#{animal} is extinct."
   else 
-    puts "Checking....not extinct"
     next
   end
 end
