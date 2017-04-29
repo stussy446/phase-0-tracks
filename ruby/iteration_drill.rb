@@ -7,7 +7,7 @@ zombie_apocalypse_supplies = ["hatchet", "rations", "water jug", "binoculars",
 # printing each item in the array separated by an asterisk
 # ----
 
-# zombie_apocalypse_supplies.each{|supply| print "#{supply}*"}
+zombie_apocalypse_supplies.each{|supply| print "#{supply}*"}
 
 # 2. In order to keep yourself organized, sort your zombie_apocalypse_supplies
 # in alphabetical order. Do not use any special built-in methods.
@@ -23,7 +23,7 @@ loop do
   end 
   break if not swapped 
 end 
-#puts zombie_apocalypse_supplies
+puts zombie_apocalypse_supplies
 
 
 
@@ -46,7 +46,7 @@ def is_it_here(arr, item)
   end
 end
 
-# is_it_here( zombie_apocalypse_supplies, "batteries") 
+is_it_here( zombie_apocalypse_supplies, "batteries") 
 
 # 4. You can't carry too many things, you've only got room in your pack for 5.
 # Remove items in your zombie_apocalypse_supplies in any way you'd like,
@@ -60,7 +60,7 @@ zombie_apocalypse_supplies.each do|item|
     break
   end
 end
- #puts zombie_apocalypse_supplies
+ puts zombie_apocalypse_supplies
 
 
 # 5. You found another survivor! This means you can combine your supplies.
@@ -72,8 +72,8 @@ other_survivor_supplies = [ "warm clothes", "rations", "compass", "camp stove",
                             "solar battery", "flashlight"]
 # ----
 
-# all_supplies = (zombie_apocalypse_supplies + other_survivor_supplies).uniq
-# puts all_supplies
+ all_supplies = (zombie_apocalypse_supplies + other_survivor_supplies).uniq
+ puts all_supplies
 
 
 
@@ -92,7 +92,8 @@ extinct_animals = {
 # 1. Iterate through extinct_animals hash, printing each key/value pair
 # with a dash in between the key and value, and an asterisk between each pair.
 # ----
-# extinct_animals.each{|animal, year| print "#{animal}-#{year} * "}
+
+ extinct_animals.each{|animal, year| print "#{animal}-#{year} * "}
 
 # 2. Keep only animals in extinct_animals if they were extinct before
 # the year 2000. Do not use any special built-in methods.
@@ -105,7 +106,7 @@ extinct_animals.each do|animal, year|
   end 
 end
 
-# print extinct_animals
+print extinct_animals
 
 
 
@@ -115,8 +116,8 @@ end
 # Do not use any special built-in methods.
 # ----
 
-# extinct_animals.each{|animal, year| extinct_animals[animal] = year - 3}
-# print extinct_animals
+ extinct_animals.each{|animal, year| extinct_animals[animal] = year - 3}
+ print extinct_animals
 
 # 4. You've heard that the following animals might be extinct, but you're not sure.
 # Check if they're included in extinct_animals, one by one:
