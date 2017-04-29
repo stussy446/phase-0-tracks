@@ -125,22 +125,13 @@ end
 # "Saiga Antelope"
 # Do not use any special built-in methods.
 # ----
-in_hash = []
+
 extinct_animals.each do |animal, year|
-  if "Andean Cat" == animal  
-    in_hash << "Andean Cat"
-    puts "#{animal} is extinct."
-  elsif "Dodo" == animal 
-    in_hash << "Dodo"
-    puts "#{animal} is extinct."
-  elsif "Saiga Antelope" == animal 
-    in_hash << "Saiga Antelope"
+  if "Andean Cat" == animal || "Dodo" == animal || "Saiga Antelope" == animal 
     puts "#{animal} is extinct."
   else 
-    nil
-  end
-  if in_hash[0] == nil
-    puts "#{animal} is not extinct."
+    puts "Checking....not extinct"
+    next
   end
 end
 
@@ -150,3 +141,18 @@ end
 # Find the built-in method that helps you accomplish this in the Ruby documentation
 # for Hashes.
 # ----
+living_hash = {}
+extinct_animals.each do |animal, year|
+  if animal == "Passenger Pigeon"
+    extinct_animals.delete(animal)
+    living_hash[animal] = year 
+    living_list = living_hash.to_a.flatten
+ end
+ print living_list 
+end
+
+
+
+
+
+
