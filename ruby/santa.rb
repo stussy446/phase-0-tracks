@@ -31,11 +31,8 @@ end
 # st_nick.eat_milk_and_cookies("Oatmeal Chocolate Chip")
 
 santas = []
-santas << Santa.new("agender", "black")
-santas << Santa.new("female", "Latino")
-santas << Santa.new("bigender", "white")
-santas << Santa.new("male", "Japanese")
-santas << Santa.new("female", "prefer not to say")
-santas << Santa.new("gender fluid", "Mystical Creature (unicorn)")
-santas << Santa.new("N/A", "N/A")
-
+genders = ["man", "woman", "Bisexual", "Pisexual"]
+ethnicities = ["White", "Black", "Asian", "Middle-Eastern", "Native American"]
+ethnicities.length.times do |i|
+  santas << Santa.new(genders[i], ethnicities[i])
+end 
