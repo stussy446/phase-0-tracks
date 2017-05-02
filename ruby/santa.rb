@@ -1,6 +1,8 @@
 # Santa Class with speak, eat_milk_and_cookies, and initialize method 
 
 class Santa 
+  attr_reader :age, :ethnicity 
+  attr_accessor :gender 
 
   def initialize(gender, ethnicity)
     puts "Initializing Santa instance..."
@@ -34,30 +36,8 @@ class Santa
     if @reindeer_ranking.include?(reindeer_name)
      bad_reindeer = @reindeer_ranking.index(reindeer_name)
      @reindeer_ranking.insert(-1, reindeer_name).delete_at(bad_reindeer)
-   end 
-   puts @reindeer_ranking
-     
+   end     
   end
-
-  # @gender setter method 
-
-  def gender=(new_gender)
-    @gender = new_gender 
-  end 
-
-  # Getter Methods 
-
-  def age()
-    @age 
-  end 
-
-  def ethnicity()
-    @ethnicity 
-  end
-
-
-
-
 end
 
 # TEST CODE
