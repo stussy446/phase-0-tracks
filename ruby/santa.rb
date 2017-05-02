@@ -33,9 +33,10 @@ class Santa
   def get_mad_at(reindeer_name) 
     if @reindeer_ranking.include?(reindeer_name)
      bad_reindeer = @reindeer_ranking.index(reindeer_name)
-     @reindeer_ranking.insert(-1, reindeer_name)
-     @reindeer_ranking.delete_at(bad_reindeer)
-    end
+     @reindeer_ranking.insert(-1, reindeer_name).delete_at(bad_reindeer)
+   end 
+   puts @reindeer_ranking
+     
   end
 
   # @gender setter method 
@@ -78,7 +79,7 @@ end
 nick = Santa.new("Nick", "White")
 nick.celebrate_birthday
 nick.celebrate_birthday
-nick.get_mad_at("Rudolph")
+nick.get_mad_at("Vixen")
 nick.gender = "Stevesexual"
 puts nick.age
 puts nick.ethnicity
