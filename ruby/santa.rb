@@ -66,23 +66,24 @@ end
 
 # Create 100 Santas 
 # use example_genders  and example_ethnicities
-# create variables to represent the random element chosen for each
 
 example_genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
 example_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A"]
 
-# do the action of creating a santa 100 times 
-# each santa should have a random gender and random ethnicity 
+# do the action of creating a santa 100 times
+# create two variables to represent the random elements chosen for the two arrays above 
+# each santa should have a random gender and random ethnicity
+# reassign each santa's age to a random number between 0 and 140 
 # print out each attribute for each instance
 
 100.times do |i|
   random_gender = example_genders.sample
   random_ethnicity = example_ethnicities.sample
   i = Santa.new(random_gender, random_ethnicity)
-  age = rand(140).times do |num|
-    i.celebrate_birthday
-  end
-  puts "This Santa's gender is #{i.gender}, his ethnicity is #{i.ethnicity}, and is age is #{age}}"
+  i.age = rand(140)
+  puts "This Santa's gender is #{i.gender}" 
+  puts "Their ethnicity is #{i.ethnicity}"
+  puts "Their age is #{i.age}"
 end
 
 
