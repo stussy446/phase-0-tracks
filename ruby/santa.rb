@@ -1,8 +1,8 @@
 # Santa Class with speak, eat_milk_and_cookies, and initialize method 
 
 class Santa 
-  attr_reader :age, :ethnicity 
-  attr_accessor :gender 
+  attr_reader :ethnicity 
+  attr_accessor :gender, :age
 
   def initialize(gender, ethnicity)
     puts "Initializing Santa instance..."
@@ -70,11 +70,20 @@ end
 
 example_genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
 example_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A"]
-random_gender = rand(example_genders.length - 1)
-random_ethnicity = rand(example_ethnicities.length - 1)
 
 # do the action of creating a santa 100 times 
-# 100.times do |i|
+# each santa should have a random gender and random ethnicity 
+# print out each attribute for each instance
+
+100.times do |i|
+  random_gender = example_genders.sample
+  random_ethnicity = example_ethnicities.sample
+  i = Santa.new(random_gender, random_ethnicity)
+  age = rand(140).times do |num|
+    i.celebrate_birthday
+  end
+  puts "This Santa's gender is #{i.gender}, his ethnicity is #{i.ethnicity}, and is age is #{age}}"
+end
 
 
 
