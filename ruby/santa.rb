@@ -38,6 +38,22 @@ class Santa
     end
   end
 
+  # @gender setter method 
+
+  def gender=(new_gender)
+    @gender = new_gender 
+  end 
+
+  # Getter Methods 
+
+  def age()
+    @age 
+  end 
+
+  def ethnicity()
+    @ethnicity 
+  end
+
 
 
 
@@ -63,4 +79,7 @@ nick = Santa.new("Nick", "White")
 nick.celebrate_birthday
 nick.celebrate_birthday
 nick.get_mad_at("Rudolph")
+nick.gender = "Stevesexual"
+puts nick.age
+puts nick.ethnicity
  
