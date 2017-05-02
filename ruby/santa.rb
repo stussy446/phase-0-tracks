@@ -56,11 +56,34 @@ end
   # santas << Santa.new(genders[i], ethnicities[i])
 # end
 
-nick = Santa.new("Nick", "White")
-nick.celebrate_birthday
-nick.celebrate_birthday
-nick.get_mad_at("Vixen")
-nick.gender = "Stevesexual"
-puts nick.age
-puts nick.ethnicity
+# nick = Santa.new("Nick", "White")
+# nick.celebrate_birthday
+# nick.celebrate_birthday
+# nick.get_mad_at("Vixen")
+# nick.gender = "Stevesexual"
+# puts nick.age
+# puts nick.ethnicity
+
+# Create 100 Santas 
+# use example_genders  and example_ethnicities
+# create variables to represent the random element chosen for each
+
+example_genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
+example_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A"]
+random_gender = rand(example_genders.length - 1)
+random_ethnicity = rand(example_ethnicities.length - 1)
+
+# do the action of creating a santa 100 times 
+# 100.times do |i|
+
+
+
+
+
+
+
+
+
+
+
  
