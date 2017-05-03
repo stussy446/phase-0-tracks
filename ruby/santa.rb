@@ -77,9 +77,7 @@ example_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer n
 # print out each attribute for each instance
 
 100.times do |i|
-  random_gender = example_genders.sample
-  random_ethnicity = example_ethnicities.sample
-  i = Santa.new(random_gender, random_ethnicity)
+  i = Santa.new(example_genders.sample, example_ethnicities.sample)
   i.age = rand(140)
   puts "This Santa's gender is #{i.gender}" 
   puts "Their ethnicity is #{i.ethnicity}"
