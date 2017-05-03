@@ -49,6 +49,8 @@ dog.roll_over
 puts dog.dog_years(7)
 dog.play_dead 
 
+trick_list= ["roll over", "speak", "play dead", "eat"]
+human_name_list = ["Steve", "Danielle", "Justin", "Kevin"]
 cat_array = []
 
 50.times do |i|
@@ -56,7 +58,7 @@ cat_array = []
 end 
 
 cat_array.each do |cat|
-  cat.perform_trick("roll over")
-  cat.scratch("Steve")
+  cat.perform_trick(trick_list.sample)
+  cat.scratch(human_name_list.sample)
 end 
 
