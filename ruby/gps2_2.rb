@@ -30,8 +30,7 @@ end
   # the updated list with the new item in it 
 
 def add_item_to_list(grocery_list, item_name, optional_quantity = 1)
-  grocery_list[item_name] = optional_quantity
-  grocery_list
+  update_item_quantity(grocery_list,item_name, optional_quantity)
 end
 
 # Method to remove an item from the list
@@ -74,7 +73,7 @@ end
 # TEST CODE
 
 test_list = create_a_list("carrots apples cereal pizza")
-puts add_item_to_list(test_list, "banana")
+puts add_item_to_list(test_list, "banana", 7)
 puts remove_item_from_list(test_list, "cereal")
 puts update_item_quantity(test_list, "apples", 53)
 print_list(test_list)
