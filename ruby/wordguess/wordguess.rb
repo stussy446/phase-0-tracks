@@ -38,7 +38,7 @@ class WordGuess
 
   def compare_words(word)
     if @secret_word == word
-     @game_board = @secret_word
+     @game_board = @secret_word.split('')
      @is_over = true 
     elsif @guess_count == @secret_word.split('').length 
       puts "No more guesses left!"
@@ -69,11 +69,11 @@ loop do
   guess = gets.chomp 
   puts "that is your \##{game.guess_count} guess!"
   game.compare_words(game.guess(guess))
-  puts game.game_board
+  p game.game_board.join(' ')
   break if game.is_over
 end 
 
-if game.game_board == word
+if game.game_board == word.split('')
   puts "Congratulations! You won!"
 else 
   puts "Better luck next time chump"
