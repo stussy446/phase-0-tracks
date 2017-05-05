@@ -14,14 +14,24 @@
   # The user should get a congratulate message if they win and a insulting message if they don't         
 
 class WordGuess
-  attr_reader :guess_count
+  attr_reader :guess_count, :already_guessed
   
   def initialize(secret_word)
     puts "initializing game..."
+    @already_guessed = []
     @secret_word = secret_word
     @guess_count = 0 
     @is_over = false 
   end 
 
+  def guess(word)
+    if already_guessed.include?(word)
+      "Word already guessed, does not count!"
+    else 
+      @guess_count += 1 
+      already_guessed << word  
+      word
+    end 
+  end
 end
 
