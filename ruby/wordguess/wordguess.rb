@@ -40,7 +40,7 @@ class WordGuess
     if @secret_word == word
      @game_board = @secret_word
      @is_over = true 
-    elsif @guess_count == @secret_word.split('').length + 3 
+    elsif @guess_count == @secret_word.split('').length 
       puts "No more guesses left!"
       @is_over = true 
     else  
@@ -63,7 +63,7 @@ puts "Welcome to Word Guess!"
 puts "Player 1...please input your secret word now (do it secretly...)"
 word = gets.chomp 
 game = WordGuess.new(word)
-puts "Awesome, ok player 2, you have #{word.split('').length + 3} tries!"
+puts "Awesome, ok player 2, you have #{word.split('').length} tries!"
 loop do 
   puts "What is your guess?"
   guess = gets.chomp 
