@@ -55,3 +55,21 @@ STATE_DATA = {
   "Wisconsin" => {population_density: 105.2, population: 5726398},
   "Wyoming" => {population_density: 5.851, population: 576412}
 }
+
+# The differences are that the STATE_DATA hash keys are strings and the 
+# nested hash keys are symbols.
+
+# require_relative brings something local (probably within directory) 
+# into a file while require brings in things outside of your library into 
+# your file.
+
+# Some ways to iterate through a hash are with .each |key,value|,
+# .each_key |key| will iterate through keys , .each_value |value|, 
+# .delete_if, keep_if, etc.
+
+# The thing that stood out to me was that I need to do a better job of 
+# remembering that attributes can be called in instance methods without 
+# needing to be included as parameters. 
+
+# The scope of instance variables is absolutely what was solidified 
+# for me the most with this challenge.
