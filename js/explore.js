@@ -19,12 +19,12 @@ function reverse(word){
 // DRIVER CODE 
 
 helloReverse = reverse("hello");
-steveReverse = reverse("steve")
+steveReverse = reverse("steve");
 
 var number = 1;
 if(number == 1){
 	console.log(helloReverse);
-	console.log(steveReverse)
+	console.log(steveReverse);
 }else{
 	console.log("Nope!");
 }
