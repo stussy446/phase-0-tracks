@@ -50,9 +50,8 @@ function matchingPairs(firstObject, secondObject){
 	}
 	for(item in secondObject) {
 		keyList2.push(item);
-		valueList2.push(firstObject[item]);
+		valueList2.push(secondObject[item]);
 	}
-	
 	for(i = 0; i < keyList1.length; i++){
 		if(keyList1[i] == keyList2[i] && valueList1[i] == valueList2[i]){
 			return true;
@@ -60,7 +59,6 @@ function matchingPairs(firstObject, secondObject){
 			continue;
 		}
 	}
-
 	return false;
 }
 
@@ -74,5 +72,7 @@ function matchingPairs(firstObject, secondObject){
 //var name = longestPhrase(["Steve", "Danielle", "Suzanne", "Kevin"]);
 //console.log(name); // prints "Danielle"
 
-var does_it_match = matchingPairs({name: "Steven", age: 54}, {name: "Tamir", age: 54});
-console.log(does_it_match);
+var doesItMatch = matchingPairs({name: "Steven", age: 54}, {name: "Tamir", age: 54});
+console.log(doesItMatch); // true 
+var doesNotMatch = matchingPairs({name: "taco", age: 50}, {name: "Tamir", age: 54});
+console.log(doesNotMatch); // false 
