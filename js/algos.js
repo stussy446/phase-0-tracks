@@ -30,9 +30,11 @@ function longestPhrase(list) {
 // at lest one key-value pair
 	// example input: {name: "Steven", age: 54}, {name: "Tamir", age: 54}
 	// example output: true 
-// go through both objects using a for loop, loop as many times as the
-// longest object length. for each iteration
-	// assign the key and value of both pairs to variables (key, value)
+// make empty list variables for the keys and values of both objects (4 total)
+// go through both objects using separate for loops 
+	// for each iteration, add the key to the appropriate key list and the value
+	// to the appropriate value list 
+// do another loop that goes as many times as the length of one of our lists
 	// if the keys are equal and the values are equal
 		// return true 
 	// else
