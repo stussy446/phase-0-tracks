@@ -2,7 +2,6 @@
 // longest word or phrase in the array
 	// example input: ["long phrase","longest phrase","longer phrase"]
 	// example output: "longest phrase"
-
 // create a variable (longest) starting at 0 that will keep track of the longest word/phrase
 // Create an empty string variable (largestPhrase) that will store the largest word
 // loop through each element in the given list. For each element
@@ -27,10 +26,53 @@ function longestPhrase(list) {
 	return biggestPhrase;
 }
 
+// function that takes two objects and checks to see if the objects share
+// at lest one key-value pair
+	// example input: {name: "Steven", age: 54}, {name: "Tamir", age: 54}
+	// example output: true 
+// go through both objects using a for loop, loop as many times as the
+// longest object length. for each iteration
+	// assign the key and value of both pairs to variables (key, value)
+	// if the keys are equal and the values are equal
+		// return true 
+	// else
+		// move on to the next one 
+	// if the loop ends without returning true return false 
+
+function matchingPairs(firstObject, secondObject){
+	var keyList1 = [];
+	var valueList1 = [];
+	var keyList2 = [];
+	var valueList2 = [];
+	for(item in firstObject){
+		keyList1.push(item);
+		valueList1.push(firstObject[item]);
+	}
+	for(item in secondObject) {
+		keyList2.push(item);
+		valueList2.push(firstObject[item]);
+	}
+	
+	for(i = 0; i < keyList1.length; i++){
+		if(keyList1[i] == keyList2[i] && valueList1[i] == valueList2[i]){
+			return true;
+		} else {
+			continue;
+		}
+	}
+
+	return false;
+}
+
+
+
 // DRIVER CODE 
 
-var word = longestPhrase(["long phrase","longest phrase","longer phrase"]);
-console.log(word); // prints "longest phrase"
+//var word = longestPhrase(["long phrase","longest phrase","longer phrase"]);
+//console.log(word); // prints "longest phrase"
 
-var name = longestPhrase(["Steve", "Danielle", "Suzanne", "Kevin"]);
-console.log(name); // prints "Danielle"
+//var name = longestPhrase(["Steve", "Danielle", "Suzanne", "Kevin"]);
+//console.log(name); // prints "Danielle"
+
+var does_it_match = matchingPairs({name: "Steven", age: 54}, {name: "Tamir", age: 54});
+console.log(does_it_match);
