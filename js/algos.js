@@ -77,7 +77,7 @@ function random(length){
 	for(var i = 0; i < length; i ++){
 		randomList[i] = "";
 		var count = 0;
-		while(count < Math.floor(Math.random() * 11)) {
+		while(count < 1 + Math.floor(Math.random() * 11)) {
 			randomList[i] = randomList[i] + alphabet[Math.floor(Math.random() * alphabet.length)];
 			count += 1 
 		}
@@ -101,6 +101,10 @@ function random(length){
 //var doesNotMatch = matchingPairs({name: "taco", age: 50}, {name: "Tamir", age: 54});
 //console.log(doesNotMatch); // false 
 
-var list = random(3);
-console.log(list);
+for(var i = 0; i < 10; i++){
+	var array = random(3)
+	console.log(array)
+	var longest = longestPhrase(array);
+	console.log(longest);
+}
 
