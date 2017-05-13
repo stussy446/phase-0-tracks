@@ -74,13 +74,12 @@ function matchingPairs(firstObject, secondObject){
 function random(length){
 	var randomList = [];
 	var alphabet = "abcdefghijklmnopqrstuvwxyz"
-	for(var i = 0; i < length; i++){
+	for(var i = 0; i < length; i ++){
 		randomList[i] = "";
-	}
-	for(var item in randomList){
 		var count = 0;
-		while(count < Math.floor(Math.random() * 10)){
-			randomList[item] = randomList[item] + alphabet[Math.floor(Math.random() * alphabet.length)];
+		while(count < Math.floor(Math.random() * 11)) {
+			randomList[i] = randomList[i] + alphabet[Math.floor(Math.random() * alphabet.length)];
+			count += 1 
 		}
 	}
 	return randomList;
