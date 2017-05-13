@@ -64,6 +64,22 @@ function matchingPairs(firstObject, secondObject){
 	return false;
 }
 
+// write a function that takes an integer for length, and builds and
+// returns an array of strings of the given length
+	// example input: 3 
+	// example output: ["randomword1", "randomword2", randomword3]
+	// words should be of random length with a minumum of 1 letter and 
+	// maximum of 10 leters 
+
+function random(length){
+	randomList = [];
+	for(i = 0; i < length; i++){
+		randomList[i] = "hello";
+	}
+	return randomList;
+}
+
+
 
 
 // DRIVER CODE 
@@ -74,7 +90,11 @@ function matchingPairs(firstObject, secondObject){
 //var name = longestPhrase(["Steve", "Danielle", "Suzanne", "Kevin"]);
 //console.log(name); // prints "Danielle"
 
-var doesItMatch = matchingPairs({name: "Steven", age: 54}, {name: "Tamir", age: 54});
-console.log(doesItMatch); // true 
-var doesNotMatch = matchingPairs({name: "taco", age: 50}, {name: "Tamir", age: 54});
-console.log(doesNotMatch); // false 
+//var doesItMatch = matchingPairs({name: "Steven", age: 54}, {name: "Tamir", age: 54});
+//console.log(doesItMatch); // true 
+//var doesNotMatch = matchingPairs({name: "taco", age: 50}, {name: "Tamir", age: 54});
+//console.log(doesNotMatch); // false 
+
+var list = random(3);
+console.log(list);
+
