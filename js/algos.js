@@ -69,17 +69,27 @@ function matchingPairs(firstObject, secondObject){
 	// example input: 3 
 	// example output: ["randomword1", "randomword2", randomword3]
 	// words should be of random length with a minumum of 1 letter and 
-	// maximum of 10 leters 
+	// maximum of 10 letters 
+// Create an empty array (randomList)
+// create a variable that holds the alphabet
+// Make a for loop that iterates as many times as the length argument
+	// for each iteration, assign the value of the element in randomList 
+	// to an empty string and set a count variable to 0.
+	// while the count is less than a random number up to 10
+		// add a random letter from the alphabet to the value of the element
+		// in our randomList
+		// add 1 to the count 
+// return randomList variable 
 
 function random(length){
 	var randomList = [];
-	var alphabet = "abcdefghijklmnopqrstuvwxyz"
+	var alphabet = "abcdefghijklmnopqrstuvwxyz";
 	for(var i = 0; i < length; i ++){
 		randomList[i] = "";
 		var count = 0;
 		while(count < 1 + Math.floor(Math.random() * 11)) {
 			randomList[i] = randomList[i] + alphabet[Math.floor(Math.random() * alphabet.length)];
-			count += 1 
+			count += 1; 
 		}
 	}
 	return randomList;
@@ -102,9 +112,8 @@ function random(length){
 //console.log(doesNotMatch); // false 
 
 for(var i = 0; i < 10; i++){
-	var array = random(3)
-	console.log(array)
-	var longest = longestPhrase(array);
-	console.log(longest);
+	var array = random(3);
+	console.log(array);
+	console.log(longestPhrase(random(3)));
 }
 
