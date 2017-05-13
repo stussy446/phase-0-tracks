@@ -72,9 +72,16 @@ function matchingPairs(firstObject, secondObject){
 	// maximum of 10 leters 
 
 function random(length){
-	randomList = [];
-	for(i = 0; i < length; i++){
-		randomList[i] = "hello";
+	var randomList = [];
+	var alphabet = "abcdefghijklmnopqrstuvwxyz"
+	for(var i = 0; i < length; i++){
+		randomList[i] = "";
+	}
+	for(var item in randomList){
+		var count = 0;
+		while(count < Math.floor(Math.random() * 10)){
+			randomList[item] = randomList[item] + alphabet[Math.floor(Math.random() * alphabet.length)];
+		}
 	}
 	return randomList;
 }
