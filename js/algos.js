@@ -13,15 +13,11 @@
 // return the biggestPhrase variable
 
 function longestPhrase(list) {
-	var longest = 0; 
 	var biggestPhrase = "";
 	for(var i = 0; i < list.length; i++){
-		if(list[i].length > longest) {
+		if(list[i].length > biggestPhrase.length) {
 			biggestPhrase = list[i];
-			longest = list[i].length;
-		} else {
-			continue;
-		}
+		} 
 	}
 	return biggestPhrase;
 }
@@ -42,23 +38,9 @@ function longestPhrase(list) {
 	// if the loop ends without returning true return false 
 
 function matchingPairs(firstObject, secondObject){
-	var keyList1 = [];
-	var valueList1 = [];
-	var keyList2 = [];
-	var valueList2 = [];
-	for(item in firstObject){
-		keyList1.push(item);
-		valueList1.push(firstObject[item]);
-	}
-	for(item in secondObject) {
-		keyList2.push(item);
-		valueList2.push(secondObject[item]);
-	}
-	for(i = 0; i < keyList1.length; i++){
-		if(keyList1[i] == keyList2[i] && valueList1[i] == valueList2[i]){
-			return true;
-		} else {
-			continue;
+	for(var item in firstObject){
+		if (firstObject[item] == secondObject[item]){
+			return true; 
 		}
 	}
 	return false;
@@ -81,14 +63,18 @@ function matchingPairs(firstObject, secondObject){
 		// add 1 to the count 
 // return randomList variable 
 
+function generateNumber(multiplier){
+	return Math.floor(Math.random() * multiplier);
+}
+
 function random(length){
 	var randomList = [];
 	var alphabet = "abcdefghijklmnopqrstuvwxyz";
 	for(var i = 0; i < length; i ++){
 		randomList[i] = "";
 		var count = 0;
-		while(count < 1 + Math.floor(Math.random() * 11)) {
-			randomList[i] = randomList[i] + alphabet[Math.floor(Math.random() * alphabet.length)];
+		while(count < 1 + generateNumber(11)) {
+			randomList[i] = randomList[i] + alphabet[generateNumber(alphabet.length)];
 			count += 1; 
 		}
 	}
@@ -100,20 +86,20 @@ function random(length){
 
 // DRIVER CODE 
 
-//var word = longestPhrase(["long phrase","longest phrase","longer phrase"]);
-//console.log(word); // prints "longest phrase"
+var word = longestPhrase(["long phrase","longest phrase","longer phrase"]);
+console.log(word); // prints "longest phrase"
 
-//var name = longestPhrase(["Steve", "Danielle", "Suzanne", "Kevin"]);
-//console.log(name); // prints "Danielle"
+var name = longestPhrase(["Steve", "Danielle", "Suzanne", "Kevin"]);
+console.log(name); // prints "Danielle"
 
 //var doesItMatch = matchingPairs({name: "Steven", age: 54}, {name: "Tamir", age: 54});
 //console.log(doesItMatch); // true 
 //var doesNotMatch = matchingPairs({name: "taco", age: 50}, {name: "Tamir", age: 54});
 //console.log(doesNotMatch); // false 
 
-for(var i = 0; i < 10; i++){
-	var array = random(3);
-	console.log(array);
-	console.log(longestPhrase(random(3)));
-}
+//for(var i = 0; i < 10; i++){
+	//var array = random(3);
+	//console.log(array);
+	//console.log(longestPhrase(random(3)));
+//}
 
