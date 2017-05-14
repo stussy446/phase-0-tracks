@@ -67,14 +67,18 @@ function matchingPairs(firstObject, secondObject){
 		// add 1 to the count 
 // return randomList variable 
 
+function generateNumber(multiplier){
+	return Math.floor(Math.random() * multiplier);
+}
+
 function random(length){
 	var randomList = [];
 	var alphabet = "abcdefghijklmnopqrstuvwxyz";
 	for(var i = 0; i < length; i ++){
 		randomList[i] = "";
 		var count = 0;
-		while(count < 1 + Math.floor(Math.random() * 11)) {
-			randomList[i] = randomList[i] + alphabet[Math.floor(Math.random() * alphabet.length)];
+		while(count < 1 + generateNumber(11)) {
+			randomList[i] = randomList[i] + alphabet[generateNumber(alphabet.length)];
 			count += 1; 
 		}
 	}
@@ -92,14 +96,14 @@ function random(length){
 //var name = longestPhrase(["Steve", "Danielle", "Suzanne", "Kevin"]);
 //console.log(name); // prints "Danielle"
 
-var doesItMatch = matchingPairs({name: "Steven", age: 54}, {name: "Tamir", age: 54});
-console.log(doesItMatch); // true 
-var doesNotMatch = matchingPairs({name: "taco", age: 50}, {name: "Tamir", age: 54});
-console.log(doesNotMatch); // false 
+//var doesItMatch = matchingPairs({name: "Steven", age: 54}, {name: "Tamir", age: 54});
+//console.log(doesItMatch); // true 
+//var doesNotMatch = matchingPairs({name: "taco", age: 50}, {name: "Tamir", age: 54});
+//console.log(doesNotMatch); // false 
 
-//for(var i = 0; i < 10; i++){
-//	var array = random(3);
-//	console.log(array);
-//	console.log(longestPhrase(random(3)));
-//}
+for(var i = 0; i < 10; i++){
+	var array = random(3);
+	console.log(array);
+	console.log(longestPhrase(random(3)));
+}
 
