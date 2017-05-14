@@ -13,15 +13,11 @@
 // return the biggestPhrase variable
 
 function longestPhrase(list) {
-	var longest = 0; 
 	var biggestPhrase = "";
 	for(var i = 0; i < list.length; i++){
-		if(list[i].length > longest) {
+		if(list[i].length > biggestPhrase.length) {
 			biggestPhrase = list[i];
-			longest = list[i].length;
-		} else {
-			continue;
-		}
+		} 
 	}
 	return biggestPhrase;
 }
@@ -90,20 +86,20 @@ function random(length){
 
 // DRIVER CODE 
 
-//var word = longestPhrase(["long phrase","longest phrase","longer phrase"]);
-//console.log(word); // prints "longest phrase"
+var word = longestPhrase(["long phrase","longest phrase","longer phrase"]);
+console.log(word); // prints "longest phrase"
 
-//var name = longestPhrase(["Steve", "Danielle", "Suzanne", "Kevin"]);
-//console.log(name); // prints "Danielle"
+var name = longestPhrase(["Steve", "Danielle", "Suzanne", "Kevin"]);
+console.log(name); // prints "Danielle"
 
 //var doesItMatch = matchingPairs({name: "Steven", age: 54}, {name: "Tamir", age: 54});
 //console.log(doesItMatch); // true 
 //var doesNotMatch = matchingPairs({name: "taco", age: 50}, {name: "Tamir", age: 54});
 //console.log(doesNotMatch); // false 
 
-for(var i = 0; i < 10; i++){
-	var array = random(3);
-	console.log(array);
-	console.log(longestPhrase(random(3)));
-}
+//for(var i = 0; i < 10; i++){
+	//var array = random(3);
+	//console.log(array);
+	//console.log(longestPhrase(random(3)));
+//}
 
