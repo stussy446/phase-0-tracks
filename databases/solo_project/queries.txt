@@ -1,0 +1,41 @@
+Display the information in one table (either table is fine).
+
+sqlite> SELECT * FROM games;
+1|KingdomHearts|4|true|1
+2|NHL|20|true|3
+3|DevilMayCry|3|false|2
+4|Persona|5|true|1
+
+Update an item that meets some condition (you can choose a condition that makes sense).
+
+sqlite> UPDATE games set fun="false" WHERE name = "NHL";
+sqlite> SELECT * FROM games;
+1|KingdomHearts|4|true|1
+2|NHL|20|false|3
+3|DevilMayCry|3|false|2
+4|Persona|5|true|1
+sqlite> 
+
+Display the information in both tables using one query.
+
+sqlite> SELECT * FROM games, genres WHERE games.genre_id = genres.id;
+1|KingdomHearts|4|true|1|1|rpg
+2|NHL|20|false|3|3|sports
+3|DevilMayCry|3|false|2|2|action
+4|Persona|5|true|1|1|rpg
+
+Display a narrower selection of columns (fewer columns than all of them, in other words) from both tables using one query.
+
+sqlite> SELECT games.name, genres.name FROM games JOIN genres ON games.genre_id =genres.id;
+KingdomHearts|rpg
+NHL|sports
+DevilMayCry|action
+Persona|rpg
+
+Delete an item that meets some condition (you can choose a condition that makes sense).
+
+sqlite> DELETE FROM games WHERE name="Persona";
+sqlite> SELECT * FROM games;
+1|KingdomHearts|4|true|1
+2|NHL|20|false|3
+3|DevilMayCry|3|false|2
