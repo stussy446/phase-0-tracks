@@ -39,3 +39,16 @@ sqlite> SELECT * FROM games;
 1|KingdomHearts|4|true|1
 2|NHL|20|false|3
 3|DevilMayCry|3|false|2
+
+
+The LEFT JOIN will print out all available records on the left table (table 1) even if a record does not have a match in the right table.
+Notice how Horizon's genre is blank (or NULL).
+
+sqlite> SELECT games.name, genres.name
+   ...> FROM games
+   ...> LEFT JOIN genres ON games.genre_id = genres.id;
+KingdomHearts|rpg
+NHL|sports
+DevilMayCry|action
+Horizon|
+sqlite> 
