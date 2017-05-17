@@ -1,0 +1,84 @@
+Display the information in one table (either table is fine).
+
+sqlite> SELECT * FROM games;
+1|KingdomHearts|4|true|1
+2|NHL|20|true|3
+3|DevilMayCry|3|false|2
+4|Persona|5|true|1
+
+Update an item that meets some condition (you can choose a condition that makes sense).
+
+sqlite> UPDATE games set fun="false" WHERE name = "NHL";
+sqlite> SELECT * FROM games;
+1|KingdomHearts|4|true|1
+2|NHL|20|false|3
+3|DevilMayCry|3|false|2
+4|Persona|5|true|1
+sqlite> 
+
+Display the information in both tables using one query.
+
+sqlite> SELECT * FROM games, genres WHERE games.genre_id = genres.id;
+1|KingdomHearts|4|true|1|1|rpg
+2|NHL|20|false|3|3|sports
+3|DevilMayCry|3|false|2|2|action
+4|Persona|5|true|1|1|rpg
+
+Display a narrower selection of columns (fewer columns than all of them, in other words) from both tables using one query.
+
+sqlite> SELECT games.name, genres.name FROM games JOIN genres ON games.genre_id =genres.id;
+KingdomHearts|rpg
+NHL|sports
+DevilMayCry|action
+Persona|rpg
+
+Delete an item that meets some condition (you can choose a condition that makes sense).
+
+sqlite> DELETE FROM games WHERE name="Persona";
+sqlite> SELECT * FROM games;
+1|KingdomHearts|4|true|1
+2|NHL|20|false|3
+3|DevilMayCry|3|false|2
+
+
+The LEFT JOIN will print out all available records on the left table (table 1) even if a record does not have a match in the right table.
+Notice how Horizon's genre is blank (or NULL).
+
+sqlite> SELECT games.name, genres.name
+   ...> FROM games
+   ...> LEFT JOIN genres ON games.genre_id = genres.id;
+KingdomHearts|rpg
+NHL|sports
+DevilMayCry|action
+Horizon|
+
+RIGHT JOIN and FULL OUTER JOIN exist as well, but seem to not be supportes in SQLite. RIGHT JOIN simply does the inverse of LEFT JOIN, and FULL OUTER JOIN will print out all records if any match between tables. This can return some potentially huge data sets.
+
+sqlite> SELECT games.name, genres.name
+   ...> FROM games
+   ...> RIGHT JOIN genres ON games.genre_id = genres.id;
+Error: RIGHT and FULL OUTER JOINs are not currently supported
+
+
+
+SELF JOIN is basically joining a table with itself. As seen below, this joins together game names from the same table (in a very very basic way). To make it more specific you could add more matching conditions with another table.
+
+sqlite> SELECT A.name AS name1, B.name AS name2
+   ...> FROM games A, games B
+   ...> WHERE A.id <> B.id
+   ...> ;
+KingdomHearts|NHL
+KingdomHearts|DevilMayCry
+KingdomHearts|Horizon
+NHL|KingdomHearts
+NHL|DevilMayCry
+NHL|Horizon
+DevilMayCry|KingdomHearts
+DevilMayCry|NHL
+DevilMayCry|Horizon
+Horizon|KingdomHearts
+Horizon|NHL
+Horizon|DevilMayCry
+
+
+
