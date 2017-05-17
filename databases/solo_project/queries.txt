@@ -51,4 +51,34 @@ KingdomHearts|rpg
 NHL|sports
 DevilMayCry|action
 Horizon|
-sqlite> 
+
+RIGHT JOIN and FULL OUTER JOIN exist as well, but seem to not be supportes in SQLite. RIGHT JOIN simply does the inverse of LEFT JOIN, and FULL OUTER JOIN will print out all records if any match between tables. This can return some potentially huge data sets.
+
+sqlite> SELECT games.name, genres.name
+   ...> FROM games
+   ...> RIGHT JOIN genres ON games.genre_id = genres.id;
+Error: RIGHT and FULL OUTER JOINs are not currently supported
+
+
+
+SELF JOIN is basically joining a table with itself. As seen below, this joins together game names from the same table (in a very very basic way). To make it more specific you could add more matching conditions with another table.
+
+sqlite> SELECT A.name AS name1, B.name AS name2
+   ...> FROM games A, games B
+   ...> WHERE A.id <> B.id
+   ...> ;
+KingdomHearts|NHL
+KingdomHearts|DevilMayCry
+KingdomHearts|Horizon
+NHL|KingdomHearts
+NHL|DevilMayCry
+NHL|Horizon
+DevilMayCry|KingdomHearts
+DevilMayCry|NHL
+DevilMayCry|Horizon
+Horizon|KingdomHearts
+Horizon|NHL
+Horizon|DevilMayCry
+
+
+
