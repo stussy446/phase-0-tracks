@@ -62,10 +62,22 @@ def add_book(db, name, author, pages, completed)
   VALUES (?,?,?,?)", [name, author, pages, completed])
 end 
 
+# create methods that let the user delete from each table
+def delete_entry(db, table, name)
+  db.execute("DELETE FROM #{table} WHERE name = (?)", [name])
+end
+
+
+
 
 # DRIVER CODE 
 # add_movie(backlogs, "Split", 2, 2017, "false")
 # add_movie_or_game(backlogs, "games", "KingdomHearts", 40, 2000, "false")
-add_book(backlogs, "Harry Potter 3", "JK Rowling", 350, "false")
+# add_book(backlogs, "Harry Potter 3", "JK Rowling", 350, "false")
+delete_entry(backlogs, "movies", "Split")
+delete_entry(backlogs, "games", "KingdomHearts")
+delete_entry(backlogs, "books", "Harry Potter 3")
+
+
 
 
