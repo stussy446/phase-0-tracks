@@ -50,3 +50,14 @@ backlogs.execute(create_movie_table)
 backlogs.execute(create_game_table)
 backlogs.execute(create_book_table)
 
+# create methods  that lets users add to each of the tables 
+
+def add_movie(db, name, length, release_year, completed)
+  db.execute("INSERT INTO movies (name, length, release_year, completed) 
+  VALUES (?,?,?,?)", [name, length, release_year, completed])
+end
+
+# DRIVER CODE 
+add_movie(backlogs, "Split", 2, 2017, "false")
+
+
