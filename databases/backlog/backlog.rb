@@ -57,9 +57,15 @@ def add_movie_or_game(db, table, name, length, release_year, completed)
     VALUES (?,?,?,?)", [name, length, release_year, completed])
 end
 
+def add_book(db, name, author, pages, completed)
+  db.execute("INSERT INTO books (name, author, pages, completed)
+  VALUES (?,?,?,?)", [name, author, pages, completed])
+end 
+
 
 # DRIVER CODE 
 # add_movie(backlogs, "Split", 2, 2017, "false")
-add_movie_or_game(backlogs, "games", "KingdomHearts", 40, 2000, "false")
+# add_movie_or_game(backlogs, "games", "KingdomHearts", 40, 2000, "false")
+add_book(backlogs, "Harry Potter 3", "JK Rowling", 350, "false")
 
 
