@@ -67,10 +67,12 @@ end
 # create a  method that let the user delete from each table
 def delete_entry(db, table, name)
   db.execute("DELETE FROM #{table} WHERE name = (?)", [name])
+  print_table(db, table)
 end
 
 # create a method that lets the user mark an item as complete
 def mark_complete(db, table, name)
+  name = name.downcase
   db.execute("UPDATE #{table} set completed ='true' WHERE name = (?)", [name])
   print_table(db, table)
 end
@@ -99,7 +101,7 @@ end
 # delete_entry(backlogs, "games", "Kingdom Hearts")
 # delete_entry(backlogs, "books", "Harry Potter 3")
 # mark_complete(backlogs, "movies", "Split")
-#print_table(backlogs, "games")
+# print_table(backlogs, "games")
 #print_all_tables(backlogs)
 
 # UI 
@@ -135,8 +137,15 @@ elsif answer == "update"
   entry from your movies, games, or books?"
   entry_update = gets.chomp.downcase
   puts "What is the name of the entry you would like to update?"
-  entry_name = gets.chomp
+  entry_name = gets.chomp.downcase 
   mark_complete(backlogs, entry_update, entry_name)
+elsif answer == "delete"
+  puts "You have chosen to delete an entry! Would you like to delete an
+  entry from your movies, games, or books?"
+  delete_from_table = gets.chomp.downcase 
+  puts "What is the name of the entry you would like to delete?"
+  delete_name = gets.chomp.downcase 
+  delete_entry(backlogs, delete_from_table, delete_name)
 end
 
 
