@@ -61,6 +61,7 @@ end
 def add_book(db, name, author, pages, completed="false")
   db.execute("INSERT INTO books (name, author, pages, completed)
   VALUES (?,?,?,?)", [name, author, pages, completed])
+  print_table(db, "books")
 end 
 
 # create a  method that let the user delete from each table
@@ -98,7 +99,7 @@ end
 # delete_entry(backlogs, "books", "Harry Potter 3")
 # mark_complete(backlogs, "movies", "Split")
 #print_table(backlogs, "games")
-print_all_tables(backlogs)
+#print_all_tables(backlogs)
 
 # UI 
 
@@ -111,12 +112,22 @@ if answer == "add"
   table_choice = gets.chomp.downcase
   if table_choice == "movies" || table_choice == "games"
     puts "You have chosen #{table_choice}. What is the name of your entry?"
-    name = gets.chomp 
+    name = gets.chomp.downcase 
     puts "How many hours is it?"
     hours = gets.chomp.to_i
     puts "What year was it released?"
     year = gets.chomp.to_i
     add_movie_or_game(backlogs, table_choice, name, hours, year)
+  elsif table_choice == "books"
+    puts "You have chosen #{table_choice}. What is the name of your book?"
+    book = gets.chomp.downcase
+    puts "Who is the author of this book?"
+    author = gets.chomp.downcase 
+    puts "How many pages long is the book?"
+    pages = gets.chomp.to_i 
+    add_book(backlogs, book, author, pages)
+  else
+    puts "Invalid Input"  
   end
 end
 
