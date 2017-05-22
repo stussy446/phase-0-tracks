@@ -3,9 +3,8 @@
   # games has id, name, length, release, completed
   # books has id, name, author, pages, completed
 
-# bring in the sqlite3 gem and faker gem 
+# bring in the sqlite3 gem  
 require 'sqlite3'
-require 'faker'
 
 # create the database 
 backlogs = SQLite3:: Database.new("backlogs.db")
@@ -52,13 +51,13 @@ backlogs.execute(create_book_table)
 
 # create methods  that lets users add to each of the tables 
 
-def add_movie_or_game(db, table, name, hours, release_year, completed="false")
+def add_movie_or_game(db, table, name, hours=0, release_year=0000, completed="false")
     db.execute("INSERT INTO #{table} (name, hours, release_year, completed) 
     VALUES (?,?,?,?)", [name, hours, release_year, completed])
     print_table(db, table)
 end
 
-def add_book(db, name, author, pages, completed="false")
+def add_book(db, name, author, pages=0, completed="false")
   db.execute("INSERT INTO books (name, author, pages, completed)
   VALUES (?,?,?,?)", [name, author, pages, completed])
   print_table(db, "books")
@@ -80,9 +79,15 @@ end
 # create a method that lets the user see their backlogs one by one
 def print_table(db,table)
   puts "~~~#{table}~~~"
-  table = db.execute("SELECT * FROM #{table}")
-  table.each do |item|
-    p item    
+  items = db.execute("SELECT * FROM #{table}")
+  if table == "movies" || table == "games"
+    items.each do |item| 
+      puts "name: #{item[1]}, hours: #{item[2]}, release year: #{item[3]}, completed? #{item[4]}"
+    end
+  elsif table == "books"
+    items.each do |item| 
+      puts "name: #{item[1]}, author: #{item[2]}, pages: #{item[3]}, completed? #{item[4]}"
+    end
   end 
 end
 
@@ -105,6 +110,7 @@ end
 #print_all_tables(backlogs)
 
 # UI 
+
 loop do 
   puts "Welcome to your backlogs! Would you like to Add one of your backlogs today,
   Update an item as completed, delete an entry, or read your backlogs?"
@@ -160,6 +166,8 @@ loop do
     end
   end
 end
+
+puts "Thanks for backlogging with us!!"
 
 
 
