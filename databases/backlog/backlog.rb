@@ -72,6 +72,7 @@ end
 # create a method that lets the user mark an item as complete
 def mark_complete(db, table, name)
   db.execute("UPDATE #{table} set completed ='true' WHERE name = (?)", [name])
+  print_table(db, table)
 end
 
 # create a method that lets the user see their backlogs one by one
@@ -129,6 +130,13 @@ if answer == "add"
   else
     puts "Invalid Input"  
   end
+elsif answer == "update"
+  puts "You have chosen to update an entry! Would you like to update an
+  entry from your movies, games, or books?"
+  entry_update = gets.chomp.downcase
+  puts "What is the name of the entry you would like to update?"
+  entry_name = gets.chomp
+  mark_complete(backlogs, entry_update, entry_name)
 end
 
 
