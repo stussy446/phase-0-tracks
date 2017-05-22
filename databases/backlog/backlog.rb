@@ -105,59 +105,61 @@ end
 #print_all_tables(backlogs)
 
 # UI 
-
-puts "Welcome to your backlogs! Would you like to Add one of your backlogs today,
-Update an item as completed, delete an entry, or read your backlogs?"
-answer = gets.chomp.downcase 
-if answer == "add"
-  puts "Beginning adding process, would you like to add to your movies, 
-  games, or books list?"
-  table_choice = gets.chomp.downcase
-  if table_choice == "movies" || table_choice == "games"
-    puts "You have chosen #{table_choice}. What is the name of your entry?"
-    name = gets.chomp.downcase 
-    puts "How many hours is it?"
-    hours = gets.chomp.to_i
-    puts "What year was it released?"
-    year = gets.chomp.to_i
-    add_movie_or_game(backlogs, table_choice, name, hours, year)
-  elsif table_choice == "books"
-    puts "You have chosen #{table_choice}. What is the name of your book?"
-    book = gets.chomp.downcase
-    puts "Who is the author of this book?"
-    author = gets.chomp.downcase 
-    puts "How many pages long is the book?"
-    pages = gets.chomp.to_i 
-    add_book(backlogs, book, author, pages)
-  else
-    puts "Invalid Input"  
-  end
-elsif answer == "update"
-  puts "You have chosen to update an entry! Would you like to update an
-  entry from your movies, games, or books?"
-  entry_update = gets.chomp.downcase
-  puts "What is the name of the entry you would like to update?"
-  entry_name = gets.chomp.downcase 
-  mark_complete(backlogs, entry_update, entry_name)
-elsif answer == "delete"
-  puts "You have chosen to delete an entry! Would you like to delete an
-  entry from your movies, games, or books?"
-  delete_from_table = gets.chomp.downcase 
-  puts "What is the name of the entry you would like to delete?"
-  delete_name = gets.chomp.downcase 
-  delete_entry(backlogs, delete_from_table, delete_name)
-elsif answer == "read"
-  puts "If you would like to read a specific backlog, enter the name,
-  otherwise press enter to see all of your backlogs."
-  specific_backlog = gets.chomp.downcase 
-  if specific_backlog == "movies" || specific_backlog == "games" || 
-  specific_backlog == "books"
-    print_table(backlogs, specific_backlog)
-  else
-    print_all_tables(backlogs)
+loop do 
+  puts "Welcome to your backlogs! Would you like to Add one of your backlogs today,
+  Update an item as completed, delete an entry, or read your backlogs?"
+  puts "if you are done, simply type 'done'"
+  answer = gets.chomp.downcase 
+  break if answer == 'done'
+  if answer == "add"
+    puts "Beginning adding process, would you like to add to your movies, 
+    games, or books list?"
+    table_choice = gets.chomp.downcase
+    if table_choice == "movies" || table_choice == "games"
+      puts "You have chosen #{table_choice}. What is the name of your entry?"
+      name = gets.chomp.downcase 
+      puts "How many hours is it?"
+      hours = gets.chomp.to_i
+      puts "What year was it released?"
+      year = gets.chomp.to_i
+      add_movie_or_game(backlogs, table_choice, name, hours, year)
+    elsif table_choice == "books"
+      puts "You have chosen #{table_choice}. What is the name of your book?"
+      book = gets.chomp.downcase
+      puts "Who is the author of this book?"
+      author = gets.chomp.downcase 
+      puts "How many pages long is the book?"
+      pages = gets.chomp.to_i 
+      add_book(backlogs, book, author, pages)
+    else
+      puts "Invalid Input"  
+    end
+  elsif answer == "update"
+    puts "You have chosen to update an entry! Would you like to update an
+    entry from your movies, games, or books?"
+    entry_update = gets.chomp.downcase
+    puts "What is the name of the entry you would like to update?"
+    entry_name = gets.chomp.downcase 
+    mark_complete(backlogs, entry_update, entry_name)
+  elsif answer == "delete"
+    puts "You have chosen to delete an entry! Would you like to delete an
+    entry from your movies, games, or books?"
+    delete_from_table = gets.chomp.downcase 
+    puts "What is the name of the entry you would like to delete?"
+    delete_name = gets.chomp.downcase 
+    delete_entry(backlogs, delete_from_table, delete_name)
+  elsif answer == "read"
+    puts "If you would like to read a specific backlog, enter the name,
+    otherwise press enter to see all of your backlogs."
+    specific_backlog = gets.chomp.downcase 
+    if specific_backlog == "movies" || specific_backlog == "games" || 
+    specific_backlog == "books"
+      print_table(backlogs, specific_backlog)
+    else
+      print_all_tables(backlogs)
+    end
   end
 end
-
 
 
 
