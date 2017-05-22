@@ -75,25 +75,19 @@ end
 
 # create a method that lets the user see their backlogs one by one
 def print_table(db,table)
+  puts "~~~#{table}~~~"
   table = db.execute("SELECT * FROM #{table}")
-  p table 
+  table.each do |item|
+    p item    
+  end 
 end
 
 # create a method that lets the user see all backlogs at once.
 def print_all_tables(db)
-  movies = db.execute("SELECT * FROM movies")
-  games = db.execute("SELECT * FROM games")
-  books = db.execute("SELECT * FROM books")
-  puts "MOVIES"
-  p movies 
-  puts "GAMES"
-  p games 
-  puts "BOOKS"
-  p books 
+  print_table(db, "movies")
+  print_table(db, "games")
+  print_table(db, "books")
 end
-
-
-
 
 # DRIVER CODE 
 # add_movie_or_game(backlogs, "movies", "Split", 2, 2017, "false")
@@ -103,8 +97,8 @@ end
 # delete_entry(backlogs, "games", "Kingdom Hearts")
 # delete_entry(backlogs, "books", "Harry Potter 3")
 # mark_complete(backlogs, "movies", "Split")
-# print_table(backlogs, "games")
-# print_all_tables(backlogs)
+#print_table(backlogs, "games")
+print_all_tables(backlogs)
 
 # UI 
 
