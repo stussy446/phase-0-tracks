@@ -52,12 +52,13 @@ backlogs.execute(create_book_table)
 
 # create methods  that lets users add to each of the tables 
 
-def add_movie_or_game(db, table, name, hours, release_year, completed)
+def add_movie_or_game(db, table, name, hours, release_year, completed="false")
     db.execute("INSERT INTO #{table} (name, hours, release_year, completed) 
     VALUES (?,?,?,?)", [name, hours, release_year, completed])
+    print_table(db, table)
 end
 
-def add_book(db, name, author, pages, completed)
+def add_book(db, name, author, pages, completed="false")
   db.execute("INSERT INTO books (name, author, pages, completed)
   VALUES (?,?,?,?)", [name, author, pages, completed])
 end 
@@ -103,7 +104,27 @@ end
 # delete_entry(backlogs, "books", "Harry Potter 3")
 # mark_complete(backlogs, "movies", "Split")
 # print_table(backlogs, "games")
-print_all_tables(backlogs)
+# print_all_tables(backlogs)
+
+# UI 
+
+puts "Welcome to your backlogs! Would you like to Add one of your backlogs today,
+Update an item as completed, delete an entry, or take a look at your backlogs?"
+answer = gets.chomp.downcase 
+if answer == "add"
+  puts "Beginning adding process, would you like to add to your movies, 
+  games, or books list?"
+  table_choice = gets.chomp.downcase
+  if table_choice == "movies" || table_choice == "games"
+    puts "You have chosen #{table_choice}. What is the name of your entry?"
+    name = gets.chomp 
+    puts "How many hours is it?"
+    hours = gets.chomp.to_i
+    puts "What year was it released?"
+    year = gets.chomp.to_i
+    add_movie_or_game(backlogs, table_choice, name, hours, year)
+  end
+end
 
 
 
