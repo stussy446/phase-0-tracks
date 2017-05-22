@@ -17,7 +17,7 @@ create_movie_table = <<-SQL
   CREATE TABLE IF NOT EXISTS movies (
     id INTEGER PRIMARY KEY,
     name VARCHAR(255),
-    length INT,
+    hours INT,
     release_year INT,
     completed BOOLEAN
   )
@@ -28,7 +28,7 @@ create_game_table = <<-SQL
   CREATE TABLE IF NOT EXISTS games (
     id INTEGER PRIMARY KEY,
     name VARCHAR(255),
-    length INT,
+    hours INT,
     release_year INT,
     completed BOOLEAN
   )
@@ -52,9 +52,9 @@ backlogs.execute(create_book_table)
 
 # create methods  that lets users add to each of the tables 
 
-def add_movie_or_game(db, table, name, length, release_year, completed)
-    db.execute("INSERT INTO #{table} (name, length, release_year, completed) 
-    VALUES (?,?,?,?)", [name, length, release_year, completed])
+def add_movie_or_game(db, table, name, hours, release_year, completed)
+    db.execute("INSERT INTO #{table} (name, hours, release_year, completed) 
+    VALUES (?,?,?,?)", [name, hours, release_year, completed])
 end
 
 def add_book(db, name, author, pages, completed)
@@ -72,17 +72,38 @@ def mark_complete(db, table, name)
   db.execute("UPDATE #{table} set completed ='true' WHERE name = (?)", [name])
 end
 
+# create a method that lets the user see their backlogs one by one
+def print_table(db,table)
+  table = db.execute("SELECT * FROM #{table}")
+  p table 
+end
+
+# create a method that lets the user see all backlogs at once.
+def print_all_tables(db)
+  movies = db.execute("SELECT * FROM movies")
+  games = db.execute("SELECT * FROM games")
+  books = db.execute("SELECT * FROM books")
+  puts "MOVIES"
+  p movies 
+  puts "GAMES"
+  p games 
+  puts "BOOKS"
+  p books 
+end
+
 
 
 
 # DRIVER CODE 
- add_movie_or_game(backlogs, "movies", "Split", 2, 2017, "false")
-# add_movie_or_game(backlogs, "games", "KingdomHearts", 40, 2000, "false")
+# add_movie_or_game(backlogs, "movies", "Split", 2, 2017, "false")
+# add_movie_or_game(backlogs, "games", "Kingdom Hearts", 40, 2000, "false")
 # add_book(backlogs, "Harry Potter 3", "JK Rowling", 350, "false")
 # delete_entry(backlogs, "movies", "Split")
-# delete_entry(backlogs, "games", "KingdomHearts")
+# delete_entry(backlogs, "games", "Kingdom Hearts")
 # delete_entry(backlogs, "books", "Harry Potter 3")
- mark_complete(backlogs, "movies", "Split")
+# mark_complete(backlogs, "movies", "Split")
+# print_table(backlogs, "games")
+print_all_tables(backlogs)
 
 
 
