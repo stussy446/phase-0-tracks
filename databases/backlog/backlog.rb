@@ -107,7 +107,7 @@ end
 # UI 
 
 puts "Welcome to your backlogs! Would you like to Add one of your backlogs today,
-Update an item as completed, delete an entry, or take a look at your backlogs?"
+Update an item as completed, delete an entry, or read your backlogs?"
 answer = gets.chomp.downcase 
 if answer == "add"
   puts "Beginning adding process, would you like to add to your movies, 
@@ -146,6 +146,16 @@ elsif answer == "delete"
   puts "What is the name of the entry you would like to delete?"
   delete_name = gets.chomp.downcase 
   delete_entry(backlogs, delete_from_table, delete_name)
+elsif answer == "read"
+  puts "If you would like to read a specific backlog, enter the name,
+  otherwise press enter to see all of your backlogs."
+  specific_backlog = gets.chomp.downcase 
+  if specific_backlog == "movies" || specific_backlog == "games" || 
+  specific_backlog == "books"
+    print_table(backlogs, specific_backlog)
+  else
+    print_all_tables(backlogs)
+  end
 end
 
 
