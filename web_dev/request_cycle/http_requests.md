@@ -22,4 +22,4 @@
 	
 	Each cookie is effectively a small lookup table that contains pairs of key, data values (firsname, John) etc. These values can be found on the server-side and used to tailor a page to the particular user.
 	
-	Cookies are valuable in that they are a convenient way to carry information from one session on a website to another, without wihout having to overwork the server machine with massive amounts of data storage. Cookies also help with convenience because by storing this data it is made possible to avoid repetitive things for the user, such as logging in every single time they visit a website, etc.
+	Cookies are valuable and related to HTTP requests in that they are a convenient way to carry information from one session on a website to another, without wihout having to overwork the server machine with massive amounts of data storage. Cookies also help with convenience because by storing this data it is made possible to avoid repetitive things for the user, such as logging in every single time they visit a website, etc.
