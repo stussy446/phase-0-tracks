@@ -27,6 +27,7 @@ end
 # add static resources
 
 # add route to supplies 
-get '/supplies' do 
-  erb :supplies 
+get '/alphabetical' do 
+  @students = db.execute("SELECT * FROM students ORDER BY name ASC ;")
+  erb :alphabetical 
 end
