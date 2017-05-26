@@ -25,3 +25,8 @@ post '/students' do
 end
 
 # add static resources
+
+# add route to supplies 
+get '/supplies' do 
+  erb :supplies 
+end
