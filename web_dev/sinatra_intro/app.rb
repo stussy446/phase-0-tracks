@@ -70,6 +70,22 @@ get '/add/:number_1/plus/:number_2' do
   answer.to_s 
 end
 
+# Make a route that allows the user to search the database in some way
+# -- maybe for students who have a certain first name, or some other 
+# attribute. If you like, you can simply modify the home page to take a 
+# query parameter, and filter the students displayed if a query 
+# parameters present.
+
+get '/student/:campus' do 
+  students = db.execute("SELECT * FROM students WHERE campus=?", [params[:campus]])
+  response = ""
+  students.each do |student|
+   response << "#{student["name"]} is going to #{student["campus"]}!<br><br>"
+  end
+  response
+end
+
+
 
 
 
