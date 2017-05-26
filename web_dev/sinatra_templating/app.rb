@@ -25,3 +25,19 @@ post '/students' do
 end
 
 # add static resources
+
+# add route to supplies 
+get '/alphabetical' do 
+  @students = db.execute("SELECT * FROM students ORDER BY name ASC ;")
+  erb :alphabetical 
+end
+
+get '/delete' do 
+  erb :delete_student
+end
+
+post '/students/delete' do 
+  db.execute("DELETE FROM students WHERE name= (?)", [params['name']])
+  redirect '/'
+end
+
