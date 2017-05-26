@@ -56,8 +56,13 @@ end
 # If the name is not present, the route simply says "gd job!"
 
 get '/great_job' do 
-  "Good job"
-end
+  person_name = params[:name]
+  if person_name 
+    "Great Job #{person_name}!"
+  else
+    "Good Job"
+  end 
+end 
 
 # A route that uses route parameters to add two numbers and respond with 
 # the result. The data types are tricky here -- when will the data need to
